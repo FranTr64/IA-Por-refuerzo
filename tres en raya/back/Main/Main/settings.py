@@ -52,8 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# En caso de ir a produccion, mirar todo eso con mucho detalle.
-# CORS_ALLOW_ALL_ORIGINS = True
+# Con estos tres bloques admitiendo React, puedo usar las apis y pasar información desde Django a React y viceversa. 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173", # React
     "http://127.0.0.1:5173", 
@@ -65,16 +64,16 @@ CSRF_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",  # React con Vite
-    "http://127.0.0.1:5173",  # Si usas esta IP en lugar de localhost
+    "http://localhost:5173",  # React
+    "http://127.0.0.1:5173", 
 ]
 
-
-CSRF_COOKIE_HTTPONLY = False  # El token CSRF debe ser accesible desde JavaScript
-CSRF_COOKIE_SECURE = False  # Cambia a True en producción si usas HTTPS
-SESSION_COOKIE_SECURE = False  # Cambia a True en producción
+# Estas son variables que se han de ajustar debido a que estamos trabajando en desarrollo y no en producción. 
+CSRF_COOKIE_HTTPONLY = False 
+CSRF_COOKIE_SECURE = False 
+SESSION_COOKIE_SECURE = False
 CORS_ALLOW_CREDENTIALS = True
-# CSRF_COOKIE_SAMESITE = 'None'  # Cambia a 'Lax' en producción
+
 
 ROOT_URLCONF = 'Main.urls'
 
